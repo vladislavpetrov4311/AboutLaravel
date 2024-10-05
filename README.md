@@ -1,3 +1,2 @@
-## Установка laravel 
-Команда: 
-`composer create-project laravel/laravel {your name project}`
+## Работа с Route (маршруты) 
+Командой `php artisan serve` запускаем сервер, переходим по /home
