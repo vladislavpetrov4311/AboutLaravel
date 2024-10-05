@@ -1,2 +1,2 @@
-## Работа с Route (маршруты) 
-Командой `php artisan serve` запускаем сервер, переходим по /home
+## Работа с Controller 
+Командой `php artisan make:controller {your name controller}Controller` создаём контроллер
