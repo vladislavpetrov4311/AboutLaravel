@@ -8,7 +8,10 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function getData() {
-        $post = Post::find(2); // Получаем пост на id = 2
-        dump($post);
+        $posts = Post::all(); // Получаем все посты из таблицы
+
+        foreach($posts as $post) {
+            dump($post->getAttributes()); // Выводим каждый пост по атрибутам (столбцам)
+        }
     }
 }
