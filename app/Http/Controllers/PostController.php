@@ -8,10 +8,8 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function getData() {
-        $posts = Post::all(); // Получаем все посты из таблицы
+        $post = Post::where('post' , 'блог 2')->first(); // Получаем пост по фильтрации
 
-        foreach($posts as $post) {
-            dump($post->getAttributes()); // Выводим каждый пост по атрибутам (столбцам)
-        }
+        dump($post);
     }
 }
