@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/post', [PostController::class , 'getData']);
+Route::get('/post/create', [PostController::class, 'setData']);

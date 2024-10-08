@@ -12,4 +12,21 @@ class PostController extends Controller
 
         dump($post);
     }
+
+    public function setData() {
+        $data = [
+            [
+                'title' => 'заголовок',
+                'post' => 'текст поста'
+            ],
+            [
+                'title' => 'заголовок 2',
+                'post' => 'текст поста 2'
+            ]
+            ];
+
+            foreach($data as $item) {
+                Post::create($item);
+            }
+    }
 }
