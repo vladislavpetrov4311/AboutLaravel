@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use DB;
 
 class PostController extends Controller
 {
     public function getData() {
-        $post = Post::where('post' , 'блог 2')->get(); // Получаем пост по фильтрации в види коллекции (массива)
+        $post = Post::where('id' , 1)->get(); // Получаем пост по фильтрации в види коллекции (массива)
 
         dump($post);
     }
@@ -26,7 +27,7 @@ class PostController extends Controller
             ];
 
             foreach($data as $item) {
-                Post::create($item);
+                DB::table('posts')->insert($item);
             }
     }
 }

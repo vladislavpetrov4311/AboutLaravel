@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['title' , 'post']; // Разрешаем запись в столбцы
+    protected $guarded = false; // Отклоючаем блокировку на вставку во все столбцы
 }
