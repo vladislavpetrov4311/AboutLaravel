@@ -30,4 +30,12 @@ class PostController extends Controller
                 DB::table('posts')->insert($item);
             }
     }
+
+    public function updateData() {
+        $post = Post::find(1);
+        $post->update([
+            'title' => 'обновленный',
+            'post' => 'обновленный'
+        ]);
+    }
 }
