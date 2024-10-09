@@ -38,4 +38,9 @@ class PostController extends Controller
             'post' => 'обновленный'
         ]);
     }
+
+    public function deleteData() {
+        $post = Post::find(1);
+        $post->delete();
+    }
 }
