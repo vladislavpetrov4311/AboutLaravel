@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('post');
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

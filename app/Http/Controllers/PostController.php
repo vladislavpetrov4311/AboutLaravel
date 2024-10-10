@@ -9,7 +9,7 @@ use DB;
 class PostController extends Controller
 {
     public function getData() {
-        $post = Post::where('id' , 1)->get(); // Получаем пост по фильтрации в види коллекции (массива)
+        $post = Post::withTrashed()->where('id' , 1)->get(); // Получаем пост по фильтрации в види коллекции (массива)
 
         dump($post);
     }
@@ -42,5 +42,10 @@ class PostController extends Controller
     public function deleteData() {
         $post = Post::find(1);
         $post->delete();
+    }
+
+    public function restoreData() {
+        $post = Post::withTrashed()->find(1);
+        $post->restore();
     }
 }
