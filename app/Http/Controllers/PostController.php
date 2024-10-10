@@ -48,4 +48,30 @@ class PostController extends Controller
         $post = Post::withTrashed()->find(1);
         $post->restore();
     }
+
+    public function first_or_create() {
+        $data = [
+            'title' => 'заголовок 2'
+        ];
+        $newData = [
+            'title' => 'новый заголовок',
+            'post' => 'новый пост'
+        ];
+
+        $post = Post::firstOrCreate($data, $newData);
+        dd($post);
+    }
+
+    public function update_or_create() {
+        $post = Post::updateOrCreate(
+        [
+            'title' => 'заголовок 2'
+        ], 
+        [
+            'title' => 'обновлённый',
+            'post' => 'пост'
+        ]);
+
+        dd($post);
+    }
 }
