@@ -9,9 +9,8 @@ use DB;
 class PostController extends Controller
 {
     public function getData() {
-        $post = Post::withTrashed()->where('id' , 1)->get(); // Получаем пост по фильтрации в види коллекции (массива)
-
-        dump($post);
+        $posts = Post::all();
+        return view('posts' , compact('posts'));
     }
 
     public function setData() {
