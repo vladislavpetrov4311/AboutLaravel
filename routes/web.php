@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post', [PostController::class , 'getData']);
+Route::get('/post', [PostController::class , 'getData'])->name('post'); // Придаём название route
 Route::get('/post/create', [PostController::class, 'setData']);
 Route::get('/post/update', [PostController::class, 'updateData']);
 Route::get('/post/delete', [PostController::class, 'deleteData']);

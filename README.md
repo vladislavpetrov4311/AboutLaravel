@@ -1,7 +1,11 @@
 ## Работа с View
+1. Подтягиваем шаблоную страницу: `@extends('{your name page}')`
+2. Определяем отдельную секцию: 
 
-Команды по работе:
-
-1. `php artisan make:view {name your view}` Создаём миграцию
-
+    `@section('{your name section}')`
+ 
+    контент 
+ 
+    `@endsection`
+    
 Примеры в коммитах
