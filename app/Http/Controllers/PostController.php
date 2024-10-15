@@ -14,12 +14,13 @@ class PostController extends Controller
     }
 
     public function store() {
-        $data = request()->validate([
-            'title' => 'string',
-            'post' => 'string'
-        ]);
+        $data = request();
 
-        Post::create($data);
+        Post::create([
+            'title' => $data->title,
+            'post' => $data->post
+        ]);
+        
         return redirect()->route('post.index');
     }
 
