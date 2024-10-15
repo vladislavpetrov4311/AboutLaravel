@@ -1,11 +1,14 @@
-## Работа с View
-1. Подтягиваем шаблоную страницу: `@extends('{your name page}')`
-2. Определяем отдельную секцию: 
+## Работа с Request
+1. Разрешаем доступ посылать post запросы: 
 
-    `@section('{your name section}')`
- 
-    контент 
- 
-    `@endsection`
+    В файле `vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php` Добавляем значение в массив на разрешение получение запросов
+
+    protected $except = [
+
+        'http://localhost:8000/*'
+
+    ];
+
+2. Придерживаемся концепции laravel для обозначения методов CRUD операций
     
 Примеры в коммитах

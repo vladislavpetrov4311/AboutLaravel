@@ -8,9 +8,19 @@ use DB;
 
 class PostController extends Controller
 {
-    public function getData() {
+    public function index() {
         $posts = Post::all();
         return view('posts' , compact('posts'));
+    }
+
+    public function store() {
+        $data = request()->validate([
+            'title' => 'string',
+            'post' => 'string'
+        ]);
+
+        Post::create($data);
+        return redirect()->route('post.index');
     }
 
     public function setData() {

@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <p>Работа с <a href={{route('post')}}>View</a></p>
+    <p>Работа с <a href={{route('post.index')}}>View</a></p>
     @yield('content')
 
 </div>
