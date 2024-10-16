@@ -16,3 +16,6 @@ Route::get('/post/firstOrCreate', [PostController::class, 'first_or_create']);
 Route::get('/post/updateOrCreate', [PostController::class, 'update_or_create']);
 
 Route::post('post' , [PostController::class , 'store'])->name('post.store');
+
+Route::patch('/post/{post}' , [PostController::class , 'update'])->name('post.update');
+Route::delete('/post/{post}' , [PostController::class , 'destroy'])->name('post.destroy');
