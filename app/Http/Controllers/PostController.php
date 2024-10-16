@@ -24,7 +24,8 @@ class PostController extends Controller
         return redirect()->route('post.index');
     }
 
-    public function update(Post $post) {
+    public function update($id) {
+        $post = Post::findOrFail($id); // findOrFail - успешный поиск или 404 ошибка
         $data = request()->validate([
             'title' => 'string',
             'post' => 'string'
@@ -33,7 +34,8 @@ class PostController extends Controller
         return redirect()->route('post.index');
     }
 
-    public function destroy(Post $post) {
+    public function destroy($id) {
+        $post = Post::findOrFail($id);
         $post->delete();
         return redirect()->route('post.index');
     }

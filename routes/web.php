@@ -17,5 +17,5 @@ Route::get('/post/updateOrCreate', [PostController::class, 'update_or_create']);
 
 Route::post('post' , [PostController::class , 'store'])->name('post.store');
 
-Route::patch('/post/{post}' , [PostController::class , 'update'])->name('post.update');
-Route::delete('/post/{post}' , [PostController::class , 'destroy'])->name('post.destroy');
+Route::patch('/post/{id}' , [PostController::class , 'update'])->name('post.update');
+Route::delete('/post/{id}' , [PostController::class , 'destroy'])->name('post.destroy');
