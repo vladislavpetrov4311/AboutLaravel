@@ -19,3 +19,5 @@ Route::post('post' , [PostController::class , 'store'])->name('post.store');
 
 Route::patch('/post/{id}' , [PostController::class , 'update'])->name('post.update');
 Route::delete('/post/{id}' , [PostController::class , 'destroy'])->name('post.destroy');
+
+Route::get('/post/posts_user' , [PostController::class , 'getData']);

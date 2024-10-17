@@ -18,6 +18,9 @@ return new class extends Migration
             $table->text('post')->nullable();
 
             $table->softDeletes();
+            
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id' , 'post_user_fk')->on('users')->references('id');
         });
     }
 
