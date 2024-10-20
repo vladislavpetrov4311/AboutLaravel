@@ -14,6 +14,17 @@ class PostController extends Controller
         return view('posts' , compact('posts'));
     }
 
+    public function userPost() { // У user достаём все посты
+        $user = User::find(1);
+
+        dd($user->posts);
+    }
+
+    public function postUser() { // У postа достаём всех user
+        $post = Post::find(1);
+
+        dd($post->users);
+    }
     public function getData() {
         $user = User::find(1);
         $posts = Post::where('user_id' , $user->id)->first();

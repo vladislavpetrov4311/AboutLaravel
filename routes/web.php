@@ -21,3 +21,6 @@ Route::patch('/post/{id}' , [PostController::class , 'update'])->name('post.upda
 Route::delete('/post/{id}' , [PostController::class , 'destroy'])->name('post.destroy');
 
 Route::get('/post/posts_user' , [PostController::class , 'getData']);
+
+Route::get('/post/user' , [PostController::class , 'userPost']);
+Route::get('/post/Alluser' , [PostController::class , 'postUser']);
