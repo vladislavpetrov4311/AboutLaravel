@@ -7,20 +7,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post', [PostController::class , 'index'])->name('post.index'); // Придаём название route
-Route::get('/post/create', [PostController::class, 'setData']);
-Route::get('/post/update', [PostController::class, 'updateData']);
-Route::get('/post/delete', [PostController::class, 'deleteData']);
-Route::get('/post/restore', [PostController::class, 'restoreData']);
-Route::get('/post/firstOrCreate', [PostController::class, 'first_or_create']);
-Route::get('/post/updateOrCreate', [PostController::class, 'update_or_create']);
+Route::group(['namespace' => 'App\Http\Controllers\Post'] , function() {
 
-Route::post('post' , [PostController::class , 'store'])->name('post.store');
+    Route::get('/post', IndexController::class)->name('post.index'); // Придаём название route
+    Route::get('/post/create', SetDataController::class);
+    Route::get('/post/update', UpdateDataController::class);
+    Route::get('/post/delete', DeleteDataController::class);
+    Route::get('/post/restore', RestoreDataController::class);
+    Route::get('/post/firstOrCreate', FirstOrCreateController::class);
+    Route::get('/post/updateOrCreate', UpdateOrCreateController::class);
+    Route::post('post' , StoreController::class)->name('post.store');
+    Route::patch('/post/{id}' , UpdateController::class)->name('post.update');
+    Route::delete('/post/{id}' , DestroyController::class)->name('post.destroy');
+    Route::get('/post/posts_user' , GetDataController::class);
+    Route::get('/post/user' , UserPostController::class);
+    Route::get('/post/Alluser' , PostUserController::class);
 
-Route::patch('/post/{id}' , [PostController::class , 'update'])->name('post.update');
-Route::delete('/post/{id}' , [PostController::class , 'destroy'])->name('post.destroy');
-
-Route::get('/post/posts_user' , [PostController::class , 'getData']);
-
-Route::get('/post/user' , [PostController::class , 'userPost']);
-Route::get('/post/Alluser' , [PostController::class , 'postUser']);
+});
