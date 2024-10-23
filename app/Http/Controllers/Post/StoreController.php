@@ -7,16 +7,14 @@ use App\Models\Post;
 use App\Models\User;
 use DB;
 use App\Http\Controllers\Controller;
+use App\Service\Post\Service;
 
 class StoreController extends Controller
 {
     public function __invoke() {
         $data = request();
-
-        Post::create([
-            'title' => $data->title,
-            'post' => $data->post
-        ]);
+        $service = new Service();
+        $service->Store($data);
         
         return redirect()->route('post.index');
     }

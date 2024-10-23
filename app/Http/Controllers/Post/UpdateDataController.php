@@ -7,14 +7,12 @@ use App\Models\Post;
 use App\Models\User;
 use DB;
 use App\Http\Controllers\Controller;
+use App\Service\Post\Service;
 
 class UpdateDataController extends Controller
 {
     public function __invoke() {
-        $post = Post::find(1);
-        $post->update([
-            'title' => 'обновленный',
-            'post' => 'обновленный'
-        ]);
+        $service = new Service();
+        $service->UpdateData();
     }
 }

@@ -7,19 +7,12 @@ use App\Models\Post;
 use App\Models\User;
 use DB;
 use App\Http\Controllers\Controller;
+use App\Service\Post\Service;
 
 class UpdateOrCreateController extends Controller
 {
     public function __invoke() {
-        $post = Post::updateOrCreate(
-        [
-            'title' => 'заголовок 2'
-        ], 
-        [
-            'title' => 'обновлённый',
-            'post' => 'пост'
-        ]);
-
-        dd($post);
+        $service = new Service();
+        $service->UpdateOrCreate();
     }
 }
