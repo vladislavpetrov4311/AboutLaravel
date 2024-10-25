@@ -7,4 +7,5 @@
         }}
     </p>
     @endforeach
+    <div>{{$posts->links()}}</div>
 @endsection('content')

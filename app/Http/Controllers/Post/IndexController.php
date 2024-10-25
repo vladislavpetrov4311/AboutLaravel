@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     public function __invoke() {
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return view('posts' , compact('posts'));
     }
 }
