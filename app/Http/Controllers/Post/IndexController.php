@@ -12,7 +12,7 @@ class IndexController extends Controller
 {
     public function __invoke() {
         $posts = Post::where('title' , 'like' , "%a%")
-        ->where('post' , 'like' , "%t%")
+        ->Orwhere('post' , 'like' , "%t%")
         ->whereBetween('id' , [50, 100])
         ->paginate(10);
         return view('posts' , compact('posts'));
