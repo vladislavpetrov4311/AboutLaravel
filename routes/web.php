@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['namespace' => 'App\Http\Controllers\Post'] , function() {
+Route::group(['namespace' => 'App\Http\Controllers\Post' , 'middleware' => 'post'] , function() {
 
     Route::get('/post', IndexController::class)->name('post.index'); // Придаём название route
     Route::get('/post/create', SetDataController::class);
