@@ -7,14 +7,19 @@ use App\Models\Post;
 use App\Models\User;
 use DB;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Post\UpdateRequest;
+use App\Policies\PostPolicy;
 
 class UpdateController extends Controller
 {
-    public function __invoke($id , UpdateRequest $request) {
-        $post = Post::findOrFail($id); // findOrFail - успешный поиск или 404 ошибка
-        $data = $request->validated();
-        $post->update($data);
-        return redirect()->route('post.index');
+    public function __invoke(Post $post , PostPolicy $policy , Request $request) {
+        if($policy->update($post , $request)) {
+            $post->update([
+                'title' => $request->title,
+                'post' => $request->post
+            ]);
+            return redirect()->route('post.index');
+        } else {
+            abort(401);
+        }
     }
 }

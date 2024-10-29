@@ -1,11 +1,5 @@
-## Работа с Middleware
+## Работа с Policy
 
-1. В файле Kernel.php устанавливаем значение для middleware 
-
-    protected $routeMiddleware = [
-        'post' => \App\Http\Middleware\PostMiddleware::class
-
-    ];
-2. Командой `php artisan make:middleware {name}Middleware` создаём прослойку между route и controller
+1. `php artisan make:policy {name}Policy -m {name Model}` Создаём политику безопасности
 
 Примеры в коммитах

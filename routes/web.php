@@ -17,7 +17,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Post' , 'middleware' => 'post
     Route::get('/post/firstOrCreate', FirstOrCreateController::class);
     Route::get('/post/updateOrCreate', UpdateOrCreateController::class);
     Route::post('post' , StoreController::class)->name('post.store');
-    Route::patch('/post/{id}' , UpdateController::class)->name('post.update');
+    Route::patch('/post/{post}' , UpdateController::class)->name('post.update');
     Route::delete('/post/{id}' , DestroyController::class)->name('post.destroy');
     Route::get('/post/posts_user' , GetDataController::class);
     Route::get('/post/user' , UserPostController::class);
