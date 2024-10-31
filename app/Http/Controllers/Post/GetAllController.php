@@ -11,6 +11,6 @@ class GetAllController extends Controller
 {
     public function __invoke() {
         $posts = Post::all();
-        return PostResource::collection($posts);
+        return (PostResource::collection($posts))->toJson();
     }
 }
