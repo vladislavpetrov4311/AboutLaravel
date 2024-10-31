@@ -10,7 +10,7 @@ use App\Http\Resources\Post\PostResource;
 class GetAllController extends Controller
 {
     public function __invoke() {
-        $posts = Post::find(1);
-        return new PostResource($posts);
+        $posts = Post::all();
+        return PostResource::collection($posts);
     }
 }
