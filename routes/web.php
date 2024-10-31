@@ -22,5 +22,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Post' , 'middleware' => 'post
     Route::get('/post/posts_user' , GetDataController::class);
     Route::get('/post/user' , UserPostController::class);
     Route::get('/post/Alluser' , PostUserController::class);
+    Route::get('/postAll' , GetAllController::class);
 
 });
