@@ -1,5 +1,3 @@
-## Работа с Resource
-
-1. `php artisan make:resource {name resource}Resource`
+## Работа с Transaction
 
 Примеры в коммитах
