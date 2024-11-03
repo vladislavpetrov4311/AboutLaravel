@@ -1,13 +1,7 @@
-## Работа с GuzzleHttp внутри Command
+## Работа с Excel
 
-1. `php artisan make:command` Создаём команду
+1. `composer require maatwebsite/excel` Подтягиваем расширение
 
-Прописываем команду для вызова, например, `protected $signature = 'import:jsonClient';`
-
-Затем с помощью `php artisan import:jsonClient` выполняем логику данного скрипта 
-
-2. Создаём Guzzle клиента
-
-`new \GuzzleHttp\Client(['base_uri' => 'https://jsonplaceholder.typicode.com/' , 'verify' => false]);`
+2. `php artisan make:import {name}Import`
 
 Примеры в коммитах
