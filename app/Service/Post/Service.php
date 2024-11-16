@@ -4,8 +4,15 @@ namespace App\Service\Post;
 use App\Models\Post;
 use App\Models\User;
 use DB;
+use App\Repository\Post\PostRepository;
 
 class Service {
+
+    private $repository;
+
+    public function __construct(PostRepository $repository) {
+        $this->repository = $repository;
+    }
     
     public function FirstOrCreate() {
         $data = [
@@ -72,5 +79,18 @@ class Service {
             ]);
     
             dd($post);
+    }
+
+    public function GetClearData() {
+
+        $data = $this->repository->getAll();
+
+        foreach($data as $item) {
+            if($item['id'] % 2 != 0) {
+                $item->delete();
+            }
+        }
+
+        return $this->repository->getAll(); 
     }
 }
