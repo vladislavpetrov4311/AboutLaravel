@@ -5,6 +5,7 @@ use App\Models\Post;
 use App\Models\User;
 use DB;
 use App\Repository\Post\PostRepository;
+use App\DTO\Post\PostDTO;
 
 class Service {
 
@@ -92,5 +93,13 @@ class Service {
         }
 
         return $this->repository->getAll(); 
+    }
+
+    public function updateDTO(PostDTO $postDTO , Post $post) {
+        $post->update([
+            'title' => $postDTO->title,
+            'post' => $postDTO->post
+        ]);
+        return $post;
     }
 }

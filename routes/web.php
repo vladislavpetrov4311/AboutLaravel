@@ -25,5 +25,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Post' , 'middleware' => 'post
     Route::get('/postAll' , GetAllController::class);
     Route::get('/transaction' , TransactionController::class);
     Route::get('/post/getClearData' , GetClearDataController::class);
+    Route::patch('/post/DTO/{post}' , DataDTOController::class);
 
 });
