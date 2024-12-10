@@ -1,5 +1,7 @@
-## Работа с DTO 
+## Работа с Test
 
-(Data transfer object)
+Команда запуска функциональных тестов: 
+
+`./vendor/bin/phpunit --testsuite Feature`
 
 Примеры в коммитах
